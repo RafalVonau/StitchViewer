@@ -2,7 +2,8 @@ name: Windows build
 
 on:
   push:
-  workflow_dispatch:
+    tags:
+      - '**'
 
 permissions:
   contents: read
@@ -20,7 +21,6 @@ jobs:
           path: target/x86_64-pc-windows-msvc/release/stitchviewer.exe
 
   release:
-    if: startsWith(github.ref, 'refs/tags/v')
     needs: windows
     runs-on: ubuntu-24.04
     permissions:

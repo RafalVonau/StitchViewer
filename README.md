@@ -25,7 +25,7 @@ The package installs an application menu shortcut, a scalable icon, and TIFF fil
 
 On Linux with MinGW-w64 installed, run `bash scripts/build-windows.sh`. The script installs the `x86_64-pc-windows-gnu` Rust target if needed and creates `target/x86_64-pc-windows-gnu/release/stitchviewer.exe`. On Debian or Ubuntu, install the compiler with `sudo apt install gcc-mingw-w64-x86-64`.
 
-The workflows in `.github/workflows/windows.yml` and `.github/workflows/linux.yml` build native Windows and Linux executables and upload them as GitHub Actions artifacts. Pushing a `v*` tag creates or updates the corresponding GitHub Release with `stitchviewer.exe` and `stitchviewer-linux-x86_64.tar.gz`.
+The workflows in `.github/workflows/windows.yml` and `.github/workflows/linux.yml` run only when a new tag is pushed. They build native Windows and Linux executables, upload GitHub Actions artifacts, and create or update the corresponding GitHub Release with `stitchviewer.exe` and `stitchviewer-linux-x86_64.tar.gz`.
 
 ## WebAssembly
 
