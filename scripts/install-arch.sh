@@ -30,8 +30,8 @@ if [[ -z "$version" ]]; then
   printf 'Could not read the package version from Cargo.toml.\n' >&2
   exit 1
 fi
-if [[ "$(sed -n 's/^pkgver=//p' "${repo_dir}/aur/PKGBUILD")" != "$version" ]]; then
-  printf 'Update pkgver in aur/PKGBUILD to %s first.\n' "$version" >&2
+if [[ "$(sed -n 's/^pkgver=//p' "${repo_dir}/aur/PKGBUILD.local")" != "$version" ]]; then
+  printf 'Update pkgver in aur/PKGBUILD.local to %s first.\n' "$version" >&2
   exit 1
 fi
 
@@ -46,7 +46,7 @@ files=(Cargo.toml Cargo.lock README.md LICENSE src/*.rs assets/stitchviewer.svg 
 checksum="$(sha256sum "${build_dir}/${archive}")"
 checksum="${checksum%% *}"
 sed "s/^sha256sums=('SKIP')$/sha256sums=('${checksum}')/" \
-  "${repo_dir}/aur/PKGBUILD" > "${build_dir}/PKGBUILD"
+  "${repo_dir}/aur/PKGBUILD.local" > "${build_dir}/PKGBUILD"
 (
   cd "$build_dir"
   makepkg --printsrcinfo > .SRCINFO

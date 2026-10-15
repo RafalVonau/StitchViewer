@@ -1,0 +1,17 @@
+name: Windows build
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Windows executable
+        run: cargo build --release --locked --target x86_64-pc-windows-msvc --bin stitchviewer
+      - uses: actions/upload-artifact@v4
+        with:
+          name: stitchviewer-windows
+          path: target/x86_64-pc-windows-msvc/release/stitchviewer.exe

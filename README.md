@@ -18,7 +18,7 @@ Every decoded chunk stays in RAM after creating the overview. This avoids decomp
 
 ## Arch Linux / AUR
 
-Build and install a local Arch Linux package with `./scripts/install-arch.sh`. See [aur/README.md](aur/README.md) for the `PKGBUILD` recipe and the `yay -Bi` option.
+Build and install a package from local sources with `./scripts/install-arch.sh`. The [AUR recipe](aur/README.md) also includes `stitchviewer-git`, which builds from the [GitHub repository](https://github.com/RafalVonau/StitchViewer).
 The package installs an application menu shortcut, a scalable icon, and TIFF file association.
 
 ## Windows

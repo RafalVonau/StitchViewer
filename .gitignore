@@ -1,3 +1,7 @@
 /target/
 /dist/
 /aur/local/
+/aur/src/
+/aur/pkg/
+/aur/stitchviewer/
+/aur/*.pkg.tar.*
